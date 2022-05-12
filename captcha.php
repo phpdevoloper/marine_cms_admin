@@ -11,7 +11,7 @@ function getRandomWord($len = 5) {
 $ranStr = getRandomWord();
 
 $_SESSION["vercode"] = $ranStr;
-$font = 'Anklepants.ttf';
+$font = 'Akashi.ttf';
 
 
 
@@ -43,4 +43,3 @@ imagedestroy($image_p);
 
 	
 ?>
-

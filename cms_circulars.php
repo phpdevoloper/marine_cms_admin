@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
  <?php 
- session_start();
+//  session_start();
  
- if(isset($_SESSION["email"] ))
-{
+//  if(isset($_SESSION["email"] ))
+// {
 
 					?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -190,19 +190,20 @@ body {font-size: 15px;
                                 </div>
                         <div class="col-lg-7">
                             
-							<?php if($_GET['C']=="S"){?>
-								<span class="label label-success">	<?php echo "Record Updated Successfully" ;?></span>
-								<?php
-								}
-								else if($_GET['C']=="F")
-								{
-								?>
-								<span class="label label-danger">	<?php echo "Error in Updating the Records";?></span>
-								<?php
-								}
-								else
-								{
-								}
+							<?php 
+							// if($_GET['C']=="S"){?>
+							 	<!-- <span class="label label-success">	<?php //echo "Record Updated Successfully" ;?></span> -->
+							 	<?php
+							// 	}
+							// 	else if($_GET['C']=="F")
+							// 	{
+							// 	?>
+								<!-- <span class="label label-danger">	<?php //echo "Error in Updating the Records";?></span> -->
+							 	<?php
+							// 	}
+							// 	else
+							// 	{
+							// 	}
 								?>
 
 								 <div style="float:right"> <button type="button" class="btn btn-primary"> <i class="fa fa-list"> </i> List</button>
@@ -361,6 +362,7 @@ body {font-size: 15px;
 					
 					<input type="file" name="txtupload" id="txtupload" accept="application/pdf" required></input>
 					 <input type="hidden" id="txt_userid_edit" name="txt_userid_edit" ></input>
+					 <label id="txtupload_old"></label>
 				  </div>
                             
                         </div>
@@ -476,7 +478,7 @@ document.getElementById("defaultOpen").click();
 							$("select[name^='category'] option[value='"+response.data.category+"']").attr("selected","selected");
 							$('#release_dt').val(response.data.release_dt);
                             $('#validupto').val(response.data.dt_upto);
-                            $('#txtupload').val(response.data.doc_path);							
+                            $('#txtupload_old').text(response.data.doc_path);							
 
                         }else{
                             alert("Invalid ID.");
@@ -525,15 +527,15 @@ document.getElementById("defaultOpen").click();
 
 </html>
 <?php
-}
-else
-{
-// remove all session variables
-session_unset();
-// destroy the session
-session_destroy();
-header("Location: login.php"); 
-exit();
-}
+//}
+// else
+// {
+// // remove all session variables
+// session_unset();
+// // destroy the session
+// session_destroy();
+// header("Location: login.php"); 
+// exit();
+// }
 
 ?>

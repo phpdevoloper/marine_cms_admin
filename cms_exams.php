@@ -7,18 +7,18 @@
  $msg="";
  $title="";
  
-if(!empty($_SESSION['email'] ))
-{
+// if(!empty($_SESSION['email'] ))
+// {
 
- if(!empty($_POST["submit"]))
-{
+//  if(!empty($_POST["submit"]))
+// {
  
 
-}
-else
-{
-$msg="";
-}
+// }
+// else
+// {
+// $msg="";
+// }
 
 				?>
 <!-- Mirrored from theemon.com/t/transport-html/LivePreview/homepage7.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Mar 2020 06:01:54 GMT -->
@@ -447,11 +447,11 @@ document.getElementById("defaultOpen").click();
 <!-- Mirrored from theemon.com/t/transport-html/LivePreview/homepage7.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Mar 2020 06:02:02 GMT -->
 </html>
 <?php
-}
-else
-{
-header("Location: login.php"); 
-exit();
-}
+// }
+// else
+// {
+// header("Location: login.php"); 
+// exit();
+// }
 
 ?>

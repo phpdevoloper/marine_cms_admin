@@ -86,14 +86,14 @@ else if(!empty($_POST["addSubmit"]))
 
 	if($_FILES['txtupload_add']['name']!="")
 		{
-		fileupload($_FILES['txtupload']['name'],$_FILES['txtupload']['tmp_name'],$_FILES['txtupload']['size']);
+		fileupload($_FILES['txtupload_add']['name'],$_FILES['txtupload_add']['tmp_name'],$_FILES['txtupload_add']['size']);
 		$title =$_POST['title_add'];
 		$type = $_POST['type_add'];
 		$doc_type=$_POST['txtdoc'];
 		$submitted_dt = $_POST['submitted_dt'];		 
 		$path_filename_ext = $_FILES['txtupload_add']['name'];
 		$sfile_size=$_FILES['txtupload_add']['size'];
-		$id=$_POST['txt_userid_edit'];
+		// $id=$_POST['txt_userid_edit'];
 		$url_txt=$_POST['txturl'];
         if(chkalphanum_title($title) == '2')
 		$msg.="Check Title";
@@ -108,7 +108,7 @@ else if(!empty($_POST["addSubmit"]))
 		// exit;die();
 		if((chkalphanum_title($title) != '2') && (chklen1($type) != '2') &&  (chklen4($doc_type)!='2') )
 		{
-			$str="insert into onlineservices_mst (type, title, doc_type, doc_path, submittedby, doc_size) values('".$type."','".$title."','".$doc_type."','".$path_filename_ext."','rama.a@nic.in','".$sfile_size."')";
+			$str="insert into onlineservices_mst (category, title, doc_type, doc_path, submittedby, doc_size) values('".$type."','".$title."','".$doc_type."','".$path_filename_ext."','rama.a@nic.in','".$sfile_size."')";
 			// var_dump($str);exit;die();
           pg_query($connection,$str);			
 		  header("Location: cms_onlineservices.php?C=S");

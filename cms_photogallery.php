@@ -42,6 +42,7 @@ if(!empty($_SESSION['email'] ))
 }
 else if(!empty($_POST["btnphotosubmit"]))
 {
+	// var_dump($_POST,$_FILES);die;
 
 		$eventname=$_POST["sel_event"];
 		 $caption=$_POST["txtphotocaption"];
@@ -59,7 +60,9 @@ else if(!empty($_POST["btnphotosubmit"]))
 				 $path_filename_ext = $target_dir.$caption."_".$filename.".".$ext;
 				 $sfile_size =$_FILES['txtupload']['size'];
 				//  echo $file_size;exit;die();
-					$sfile_ext=strtolower(end(explode('.',$_FILES['txtupload']['name'])));
+
+					$sfile_exte     =explode('.',$_FILES['txtupload']['name']);
+					$sfile_ext     =strtolower(end($sfile_exte));
 									  $extensions= array("png","jpeg");
 									 
 									  if(in_array($sfile_ext,$extensions)=== false){
@@ -86,7 +89,7 @@ else if(!empty($_POST["btnphotosubmit"]))
 								{		
 
 									move_uploaded_file($temp_name,$path_filename_ext);
-									 $str="insert into photogallery_mst (event_id,title,doc_path,submittedby) values('".$eventname."','".$txtphotocaption."','".$path_filename_ext."','". $_SESSION['email']."')";
+									 $str="insert into photogallery_mst (title,doc_path,submittedby,event_id) values('".$eventname."','".$caption."','".$path_filename_ext."','". $_SESSION['email']."')";
 									$execQuery_in=pg_query($connection,$str);
 									
 									$msg="Success";

@@ -62,10 +62,10 @@ $updateButton = "<i class='fa fa-edit updateUser' data-id='".$row['news_id']."' 
         $data[] = array(
                 "news_id" => $row['news_id'],
                 "title" => $row['title'],
-                "type" => $row['type'],
+                "type" => $row['category'],
                 "doc_type" => $row['doc_type'],
 				 "url_txt" => $row['url_txt'],
-				  "dt_upto" => $row['dt_upto'],
+				//   "dt_upto" => $row['dt_upto'],
 				  "doc_path" => $row['doc_path'],
                 "action" => $action
 				
@@ -105,12 +105,12 @@ $id = 0;
         $response = array(
             
 			 "news_id" => $row['news_id'],
-                "title" => $row['title'],
-                "type" => $row['type'],
-                "doc_type" => $row['doc_type'],
-				 "url_txt" => $row['url_txt'],
-				  "dt_upto" => $row['dt_upto'],
-				  "doc_path" => $row['doc_path']
+            "title" => $row['title'],
+            "type" => $row['category'],
+            "doc_type" => $row['doc_type'],
+                "url_txt" => $row['url_txt'],
+            //   "dt_upto" => $row['dt_upto'],
+                "doc_path" => $row['doc_path']
         );
 
         echo json_encode( array("status" => 1,"data" => $response) );

@@ -15,7 +15,7 @@
 			 function photogallery($idval)
 			 { 
 				//$connection = pg_connect("host=localhost port=5435 dbname='mmdchennai' user='postgres' password='rama$5741'");
-	 $connection = pg_connect("host='localhost' port=5432 dbname='mmdchennai' user='mmdchennai' password='Wwb#0987'");
+	 			$connection = pg_connect("host='localhost' port=5432 dbname='cms' user='postgres' password='postgres'");
 				 $sql = "SELECT * From photogallery_mst where event_id=".$idval;
 				
 																	$query = pg_query($connection, $sql);

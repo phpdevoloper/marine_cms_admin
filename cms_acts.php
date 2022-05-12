@@ -357,6 +357,7 @@ body {font-size: 15px;
 					<label for="txtupload">Upload Document</label>
 					
 					<input type="file" name="txtupload" id="txtupload" accept="application/pdf" ></input>
+					<label id="txtupload_old"></label>
 					 <input type="hidden" id="txt_userid_edit" name="txt_userid_edit" ></input>
 				  </div>
 				  <script>
@@ -480,7 +481,8 @@ document.getElementById("defaultOpen").click();
 							$("select[name^='txtdoc'] option[value='"+response.data.doc_type+"']").attr("selected","selected");
 							$('.txturl').val(response.data.url_txt);
                             // $('#validupto').val(response.data.dt_upto);
-                            $('#txtupload').html(response.data.doc_path);							
+                            // $('#txtupload').html(response.data.doc_path);
+                            $('#txtupload_old').text(response.data.doc_path);							
 
                         }else{
                             alert("Invalid ID.");

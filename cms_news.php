@@ -5,8 +5,7 @@
  
  if(isset($_SESSION["email"] ))
 {
-
-					?>
+?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
 		<meta charset="utf-8">
@@ -190,19 +189,19 @@ body {font-size: 15px;
                                 </div>
                         <div class="col-lg-7">
                             
-							<?php if($_GET['C']=="S"){?>
-								<span class="label label-success">	<?php echo "Record Updated Successfully" ;?></span>
+							<?php //if($_GET['C']=="S"){?>
+								<!-- <span class="label label-success">	<?php// echo "Record Updated Successfully" ;?></span> -->
 								<?php
-								}
-								else if($_GET['C']=="F")
-								{
+								// }
+								// else if($_GET['C']=="F")
+								// {
 								?>
-								<span class="label label-danger">	<?php echo "Error in Updating the Records";?></span>
+								<!-- <span class="label label-danger">	<?php //echo "Error in Updating the Records";?></span> -->
 								<?php
-								}
-								else
-								{
-								}
+								// }
+								// else
+								// {
+								// }
 								?>
 
 								 <div style="float:right"> <button type="button" class="btn btn-primary"> <i class="fa fa-list"> </i> List</button>
@@ -362,6 +361,7 @@ body {font-size: 15px;
 					
 					<input type="file" name="txtupload" id="txtupload" accept="application/pdf" ></input>
 					 <input type="hidden" id="txt_userid_edit" name="txt_userid_edit" ></input>
+					 <label id="txtupload_old">Upload Document</label>
 				  </div>
 				  <script>
 					
@@ -477,6 +477,7 @@ document.getElementById("defaultOpen").click();
             // Update record
             $('#userTable').on('click','.updateUser',function(){
                 var id = $(this).data('id');
+				
 
                 $('#txt_userid_edit').val(id);
 
@@ -487,16 +488,16 @@ document.getElementById("defaultOpen").click();
                     data: {request: 2, id: id},
                     dataType: 'json',
                     success: function(response){
+						console.log(response);
 					
                         if(response.status == 1){
-					$('#txt_userid_edit').val(response.data.news_id);
-							
+							$('#txt_userid_edit').val(response.data.news_id);
                             $('#title').val(response.data.title);
 							$('select[name^="type"] option[value='+response.data.type+']').attr("selected","selected");
 							$("select[name^='txtdoc'] option[value='"+response.data.doc_type+"']").attr("selected","selected");
 							$('.txturl').val(response.data.url_txt);
-                            $('#validupto').val(response.data.dt_upto);
-                            $('#txtupload').val(response.data.doc_path);							
+                            // $('#validupto').val(response.data.dt_upto);
+                            $('#txtupload_old').text(response.data.doc_path);							
 
                         }else{
                             alert("Invalid ID.");

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
  <?php 
- session_start();
+//  session_start();
  
- if(isset($_SESSION["email"] ))
-{
+//  if(isset($_SESSION["email"] ))
+// {
 
 					?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -190,19 +190,20 @@ body {font-size: 15px;
                                 </div>
                         <div class="col-lg-7">
                             
-							<?php if($_GET['C']=="S"){?>
-								<span class="label label-success">	<?php echo "Record Updated Successfully" ;?></span>
+							<?php 
+								// if($_GET['C']=="S"){?>
+								<!-- <span class="label label-success">	<?php echo "Record Updated Successfully" ;?></span> -->
 								<?php
-								}
-								else if($_GET['C']=="F")
-								{
+								// }
+								// else if($_GET['C']=="F")
+								// {
 								?>
-								<span class="label label-danger">	<?php echo "Error in Updating the Records";?></span>
+								<!-- <span class="label label-danger">	<?php echo "Error in Updating the Records";?></span> -->
 								<?php
-								}
-								else
-								{
-								}
+								// }
+								// else
+								// {
+								// }
 								?>
 
 								 <div style="float:right"> <button type="button" class="btn btn-primary"> <i class="fa fa-list"> </i> List</button>
@@ -358,6 +359,7 @@ body {font-size: 15px;
 					
 					<input type="file" name="txtupload" id="txtupload" accept="application/pdf" ></input>
 					 <input type="hidden" id="txt_userid_edit" name="txt_userid_edit" ></input>
+					 <label id="txtupload_old"></label>
 				  </div>
 				  <script>
 					
@@ -399,7 +401,7 @@ body {font-size: 15px;
 				<div class="footer clearfix">
 					<div class="container">
 						
-						<?php include('footer.php') ?>
+						<?php// include('footer.php') ?>
 					</div>
 				</div>
 				<!--Footer box ends Here -->
@@ -491,8 +493,8 @@ document.getElementById("defaultOpen").click();
 							$('select[name^="type"] option[value='+response.data.type+']').attr("selected","selected");
 							$("select[name^='txtdoc'] option[value='"+response.data.doc_type+"']").attr("selected","selected");
 							$('.txturl').val(response.data.url_txt);
-                            $('#validupto').val(response.data.dt_upto);
-                            $('#txtupload').val(response.data.doc_path);							
+                            // $('#validupto').val(response.data.dt_upto);
+                            $('#txtupload_old').text(response.data.doc_path);							
 
                         }else{
                             alert("Invalid ID.");
@@ -541,15 +543,15 @@ document.getElementById("defaultOpen").click();
 
 </html>
 <?php
-}
-else
-{
-// remove all session variables
-session_unset();
-// destroy the session
-session_destroy();
-header("Location: login.php"); 
-exit();
-}
+// }
+// else
+// {
+// // remove all session variables
+// session_unset();
+// // destroy the session
+// session_destroy();
+// header("Location: login.php"); 
+// exit();
+// }
 
 ?>
